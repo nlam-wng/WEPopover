@@ -52,7 +52,11 @@ permittedArrowDirections:(UIPopoverArrowDirection)permittedArrowDirections
 		[self initFrame];
 		self.backgroundColor = [UIColor clearColor];
 		UIImage *theImage = [UIImage imageNamed:properties.bgImageName];
-		bgImage = [[theImage stretchableImageWithLeftCapWidth:properties.leftBgCapSize topCapHeight:properties.topBgCapSize] retain];
+        if ([self respondsToSelector:@selector(resizableImageWithCapInsets:)]) {
+            bgImage = [[theImage resizableImageWithCapInsets:UIEdgeInsetsMake(properties.topBgCapSize, properties.leftBgCapSize, properties.topBgCapSize, properties.leftBgCapSize)] retain];
+        } else {
+            bgImage = [[theImage stretchableImageWithLeftCapWidth:properties.leftBgCapSize topCapHeight:properties.topBgCapSize] retain];
+        }
 		
 		self.clipsToBounds = YES;
 		self.userInteractionEnabled = YES;

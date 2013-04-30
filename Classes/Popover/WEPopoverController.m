@@ -357,8 +357,8 @@
 	ret.rightBgMargin = bgMargin;
 	ret.topBgMargin = bgMargin;
 	ret.bottomBgMargin = bgMargin;
-	ret.leftBgCapSize = imageSize.width/2;
-	ret.topBgCapSize = imageSize.height/2;
+	ret.leftBgCapSize = imageSize.width/2 - 1;
+	ret.topBgCapSize = imageSize.height/2 - 1;
 	ret.bgImageName = bgImageName;
 	ret.leftContentMargin = contentMargin;
 	ret.rightContentMargin = contentMargin;
